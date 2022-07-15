@@ -54,7 +54,7 @@ export const setFacility = (facilityId) => {
 }
 
 export const purchaseMineral = () => {
-{
+
         // Broadcast custom event to entire document so that the
         // application can re-render and update state
         document.dispatchEvent( new CustomEvent("stateChanged") )

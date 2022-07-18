@@ -29,7 +29,7 @@ ul {
 	padding-inline-start: 0.25rem;
 }
 
-#order-button {
+#cart--purchase {	
 	margin: 1rem 0 2rem 2rem;
 	padding: 0.5rem;
 	background-color: rgb(227, 72, 72);
@@ -63,7 +63,7 @@ ul {
 	padding-right: 50px;
 }
 
-.facility-materials {
+.row2--facility-materials {
 	display: flex;
 	flex-direction: column;
 	border: 2px dotted purple;
@@ -72,7 +72,7 @@ ul {
 	align-items: center;
 }
 
-.cart {
+.row2--cart {
 	display: flex;
 	flex-direction: column;
 	border: 2px dotted turquoise;

@@ -1,7 +1,7 @@
 export const Exomine = () => {
     const html = `
     <h1>Solar System Mining</h1>
-        <section class="row1">
+        <section class="row-1">
             <article>
                 ${buildGovs()}
                 ${buildFacilities()}
@@ -11,7 +11,7 @@ export const Exomine = () => {
                 ${renderColonyMineralHtml()}
             </article>
         </section>
-        <section class="row2">
+        <section class="row-2">
             <article>
                 <h2>Facility Minerals</h2>
                 ${renderFacilityMinerals()}

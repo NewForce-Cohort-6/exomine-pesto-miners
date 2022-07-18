@@ -2,10 +2,35 @@ const database = {
     governors: [
         {
             id: 1,
-            name: "John Boone",
+            name: "Katrina Bahringer",
             active: true,
-            colonyId: 1,
-        },
+            colonyId: 1
+        },{
+            id: 2,
+            name: "Patricia Purdy",
+            active: false,
+            colonyId: 2
+        },{
+            id: 3,
+            name: "Lola Wolff",
+            active: true,
+            colonyId: 2
+        },{
+            id: 4,
+            name: "Damon Hartmann",
+            active: true,
+            colonyId: 3
+        },{
+            id: 5,
+            name: "Laney Lesch",
+            active: true,
+            colonyId: 4
+        },{
+            id: 6,
+            name: "Rae Deckow",
+            active: true,
+            colonyId: 2
+        }         
     ],
     colonies: [
         {

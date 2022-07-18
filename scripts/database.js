@@ -2,12 +2,37 @@ const database = {
     governors: [
         {
             id: 1,
-            name: "John Boone",
+            name: "Katrina Bahringer",
             active: true,
-            colonyId: 1,
-        },
+            colonyId: 1
+        },{
+            id: 2,
+            name: "Patricia Purdy",
+            active: false,
+            colonyId: 2
+        },{
+            id: 3,
+            name: "Lola Wolff",
+            active: true,
+            colonyId: 2
+        },{
+            id: 4,
+            name: "Damon Hartmann",
+            active: true,
+            colonyId: 3
+        },{
+            id: 5,
+            name: "Laney Lesch",
+            active: true,
+            colonyId: 4
+        },{
+            id: 6,
+            name: "Rae Deckow",
+            active: true,
+            colonyId: 2
+        }         
     ],
-	colonies: [
+    colonies: [
 		{
 			id: 1,
 			name: 'Mars'
@@ -30,8 +55,7 @@ const database = {
             id: 1,
             name: "Olympus Mons",
             active: true
-        },
-        {
+        },{
             id: 2,
             name: "Elysium",
             active: true
@@ -45,7 +69,7 @@ const database = {
             id: 4, 
             name: "Hardneck",
             active: false
-        }
+        },
         {
             id: 5,
             name: "Amethyst Core",
@@ -76,8 +100,7 @@ const database = {
         {
             id: 1,
             name: "copper"
-        },
-        {
+        },{
             id: 2,
             name: "iron"
         },
@@ -251,16 +274,16 @@ const database = {
     transientState: {}
 }
 
-export const getArray = (arrayName) => database[arrayName].map((object) => ({ ...object }));
-export const getTransientState = () => database.transientState.map((state) => ({ ...state }));
+export const getArray = (arrayName) => database[arrayName].map((object) => ({ ...object }))
+export const getTransientState = () => database.transientState.map((state) => ({ ...state }))
 
 export const setFacility = (facilityId) => {
-	database.transientState.selectedFacility = facilityId;
-	document.dispatchEvent(new CustomEvent('stateChanged'));
-};
+	database.transientState.selectedFacility = facilityId
+	document.dispatchEvent(new CustomEvent('stateChanged'))
+}
 
 export const purchaseMineral = () => {
 	// Broadcast custom event to entire document so that the
 	// application can re-render and update state
-	document.dispatchEvent(new CustomEvent('stateChanged'));
-};
+	document.dispatchEvent(new CustomEvent('stateChanged'))
+}

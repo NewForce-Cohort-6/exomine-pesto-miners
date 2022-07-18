@@ -1,24 +1,24 @@
 export const Exomine = () => {
     const html = `
-    <h1>Solar System Mining</h1>
-        <section class="row-1">
-            <article class="dropdown-container">
+    <h1 class="header--title">Solar System Mining</h1>
+        <section class="main--row1">
+            <article class="row1--options">
                 ${buildGovs()}
                 ${buildFacilities()}
             </article>
-            <article class="colony-materials">
+            <article class="row1--colony-materials">
                 <h2>Colony Minerals</h2>
                 ${renderColonyMineralHtml()}
             </article>
         </section>
-        <section class="row-2">
-            <article class="facility-materials">
+        <section class="main--row2">
+            <article class="row2--facility-materials">
                 <h2>Facility Minerals</h2>
                 ${renderFacilityMinerals()}
             </article>
-            <article class="cart">
+            <article class="row2--cart">
                 <h2>Space Cart</h2>
-                <button id="purchase">Purchase Mineral</button>
+                <button id="cart--purchase">Purchase Mineral</button>
             </article>
         </section>
     `

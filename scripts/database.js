@@ -33,25 +33,103 @@ const database = {
         }         
     ],
     colonies: [
-        {
-            id: 1,
-            name: "Mars"
-        },
-    ],
+		{
+			id: 1,
+			name: 'Mars'
+		},
+		{
+			id: 2,
+			name: 'Earth'
+		},
+		{
+			id: 3,
+			name: 'Mercury'
+		},
+		{
+			id: 4,
+			name: 'Jupiter'
+		}
+	],
     facilities: [
         {
             id: 1,
             name: "Olympus Mons",
             active: true
+        },{
+            id: 2,
+            name: "Elysium",
+            active: true
         },
+        {
+            id: 3,
+            name: "South Fossa",
+            active: true
+        },
+        {
+            id: 4, 
+            name: "Hardneck",
+            active: false
+        },
+        {
+            id: 5,
+            name: "Amethyst Core",
+            active: true
+        },
+        {
+            id: 6,
+            name: "Basil Valley",
+            active: true
+        },
+        {
+            id: 7,
+            name: "Jemisin",
+            active: true
+        },
+        {
+            id: 8,
+            name: "Le Guin",
+            active: true
+        },
+        {
+            id: 9,
+            name: "Hot Point",
+            active: true
+        }
     ],
     minerals: [
         {
             id: 1,
             name: "copper"
+        },{
+            id: 2,
+            name: "iron"
+        },
+        {
+            id: 3,
+            name: "palladium"
+        },
+        {
+            id: 4,
+            name: "lithium"
+        },
+        {
+            id: 5,
+            name: "chromium"
+        },
+        {
+            id: 6,
+            name: "gypsum"
+        },
+        {
+            id: 7,
+            name: "diamond"
+        },
+        {
+            id: 8,
+            name: "chromium"
         },
     ],
-    mineralsAtFacilities: [
+	mineralsAtFacilities: [
 		{
 			id: 1,
 			mineralId: 1,

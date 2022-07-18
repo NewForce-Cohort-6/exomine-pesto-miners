@@ -146,6 +146,30 @@ const database = {
 			mineralId: 4,
 			facilityId: 8,
 			amount: 76
+		},
+		{
+			id: 19,
+			mineralId: 1,
+			facilityId: 9,
+			amount: 13
+		},
+		{
+			id: 20,
+			mineralId: 2,
+			facilityId: 9,
+			amount: 46
+		},
+		{
+			id: 21,
+			mineralId: 4,
+			facilityId: 9,
+			amount: 13
+		},
+		{
+			id: 22,
+			mineralId: 5,
+			facilityId: 9,
+			amount: 20
 		}
 	],
 	mineralsAtColonies: [

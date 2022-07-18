@@ -45,7 +45,7 @@ const database = {
             id: 4, 
             name: "Hardneck",
             active: false
-        }
+        },
         {
             id: 5,
             name: "Amethyst Core",

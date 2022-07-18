@@ -37,20 +37,20 @@ ul {
 	font-size: 1rem;
 }
 
-.row-1 {
+.main--row1 {
 	display: flex;
 	justify-content: space-between;
 	margin-bottom: 30px;
 	height: 25vh;
 }
 
-.row-2 {
+.main--row2 {
 	display: flex;
 	justify-content: space-between;
 	height: 20vh;
 }
 
-.dropdown-container {
+.row1--options {
 	display: flex;
 	flex-direction: column;
 	margin-bottom: 5px;
@@ -59,7 +59,7 @@ ul {
 	padding-left: 20px;
 }
 
-.colony-materials {
+.row1--colony-materials {
 	padding-right: 50px;
 }
 
@@ -79,4 +79,8 @@ ul {
 	padding: 5px;
 	width: 20%;
 	align-items: center;
+}
+
+.header--title {
+	font-size: 2em;
 }

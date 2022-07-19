@@ -59,11 +59,11 @@ ul {
 	padding-left: 20px;
 }
 
-.row1--colony-materials {
+.row1--colony-minerals {
 	padding-right: 50px;
 }
 
-.row2--facility-materials {
+.row2--facility-minerals {
 	display: flex;
 	flex-direction: column;
 	border: 2px dotted purple;

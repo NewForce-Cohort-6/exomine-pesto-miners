@@ -1,5 +1,6 @@
 import { setState, getTransientState, getArray } from "./database.js";
 
+//since no other function is exported, I've exported this "emptyString" to exomine.js in order for this module to be read. there's probably a better way.
 export const emptyString = ""
 
 //function to build cart HTML, called below when minerals radio button is selected

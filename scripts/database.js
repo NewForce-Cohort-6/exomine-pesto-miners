@@ -263,19 +263,17 @@ const database = {
 			amount: 20
 		}
 	],
-    mineralsAtColonies: [
-        {
-            id: 1,
-            mineralId: 1,
-            colonyId: 1,
-            amount: 0
-        },
-    ],
-    transientState: {}
+    mineralsAtColonies: [],
+    transientState: {
+		id: 1,
+		mineralId: 1,
+		facilityId: 1,
+		amount: 10
+	}
 }
 
 export const getArray = (arrayName) => database[arrayName].map((object) => ({ ...object }))
-export const getTransientState = () => database.transientState.map((state) => ({ ...state }))
+export const getTransientState = () => ({...database.transientState})
 
 export const setFacility = (facilityId) => {
 	database.transientState.selectedFacility = facilityId
@@ -285,5 +283,11 @@ export const setFacility = (facilityId) => {
 export const purchaseMineral = () => {
 	// Broadcast custom event to entire document so that the
 	// application can re-render and update state
+	const newOrder = {}
+	newOrder.id = database.mineralsAtColonies.length + 1
+	newOrder.mineralId = database.transientState.mineralId
+	newOrder.colonyId = database.transientState.colonyId
+	database.mineralsAtColonies.push(newOrder)
+
 	document.dispatchEvent(new CustomEvent('stateChanged'))
 }

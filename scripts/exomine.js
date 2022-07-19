@@ -1,4 +1,5 @@
 import { buildGovernors } from "./governors.js"
+import { displayColonyMinerals } from "./purchasing.js"
 
 export const Exomine = () => {
     const html = `
@@ -8,13 +9,13 @@ export const Exomine = () => {
                 ${buildGovernors()}
                 {buildFacilities()}
             </article>
-            <article class="row1--colony-materials">
+            <article class="row1--colony-minerals">
                 <h2>Colony Minerals</h2>
-                {renderColonyMineralHtml()}
+                <section class="colony-minerals--container"></>
             </article>
         </section>
         <section class="main--row2">
-            <article class="row2--facility-materials">
+            <article class="row2--facility-minerals">
                 <h2>Facility Minerals</h2>
                 {renderFacilityMinerals()}
             </article>

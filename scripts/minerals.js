@@ -17,9 +17,11 @@ const buildCart = () => {
             facilities.forEach(facility => {
                 if (facility.id === state.facilityId){ //expects facilityId to be previously set in transient state
                     html += `1 ton of ${mineral.name} from ${facility.name} has been added to the cart`
-                    if (facility.id === mineralsAtFacilities.facilityId && mineral.id === mineralsAtFacilities.mineralId) {
-                        setState(mineralsAtFacilities.amount, "amount")
-                    }
+                    mineralsAtFacilities.forEach(object => { //iterate through bridge table to match facilityId & mineralId to set mineral "amount" to transientState
+                        if (facility.id === object.facilityId && mineral.id === object.mineralId) {
+                            setState("amount", object.amount)
+                        }
+                    })
                 }
             })
         }       

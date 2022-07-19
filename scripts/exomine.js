@@ -1,5 +1,6 @@
 import { buildGovernors } from "./governors.js"
 import { displayColonyMinerals } from "./purchasing.js"
+import { buildFacilities, getFacilityMinerals } from "./facilities.js"
 
 export const Exomine = () => {
     const html = `
@@ -7,17 +8,21 @@ export const Exomine = () => {
         <section class="main--row1">
             <article class="row1--options">
                 ${buildGovernors()}
-                {buildFacilities()}
+                ${buildFacilities()}
             </article>
             <article class="row1--colony-minerals">
-                <h2>Colony Minerals</h2>
-                <section id="colony-minerals--container"></>
+                <h2 id="colony-minerals--header">Colony Minerals</h2>
+                <article class="colony-minerals">
+                    {renderColonyMineralHtml()}
+                </article>
             </article>
         </section>
         <section class="main--row2">
             <article class="row2--facility-minerals">
                 <h2>Facility Minerals</h2>
-                {renderFacilityMinerals()}
+                <article class="facility-minerals">
+
+                </article>
             </article>
             <article class="row2--cart">
                 <h2>Space Cart</h2>
@@ -28,9 +33,6 @@ export const Exomine = () => {
     return html
 }
 
-export const buildFacilities = () => {
-    return '<input type="radio" value="0"/>'
-}
 export const renderColonyMineralHtml = () => {
     console.log("colony minerals")
 }

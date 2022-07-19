@@ -273,12 +273,11 @@ const database = {
 	}
 }
 
-export const getArray = (arrayName) => database[arrayName].map((object) => ({ ...object }))
+export const getArray = (arrayName) => database[arrayName].map(object => ({...object})) 
 export const getTransientState = () => ({...database.transientState})
 
-export const setFacility = (facilityId) => {
-	database.transientState.selectedFacility = facilityId
-	document.dispatchEvent(new CustomEvent('stateChanged'))
+export const setState = (property, id) => {
+	database.transientState[property] = id
 }
 
 export const purchaseMineral = () => {
@@ -291,4 +290,9 @@ export const purchaseMineral = () => {
 	database.mineralsAtColonies.push(newOrder)
 
 	document.dispatchEvent(new CustomEvent('stateChanged'))
+	regenerateHtml()
+}
+
+export const regenerateHtml = () => {
+    document.dispatchEvent(new CustomEvent("stateChanged"))
 }

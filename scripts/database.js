@@ -268,7 +268,8 @@ const database = {
 		id: 1,
 		mineralId: 1,
 		facilityId: 1,
-		amount: 10
+		amount: 10,
+		colonyId: 1
 	}
 }
 

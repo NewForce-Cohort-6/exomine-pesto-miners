@@ -11,7 +11,7 @@ export const Exomine = () => {
             </article>
             <article class="row1--colony-minerals">
                 <h2>Colony Minerals</h2>
-                <section class="colony-minerals--container"></>
+                <section id="colony-minerals--container"></>
             </article>
         </section>
         <section class="main--row2">

@@ -5,7 +5,8 @@ import { purchaseMineral } from './database.js'
 document.addEventListener('click', event => {
     const itemClicked = event.target
     if (itemClicked.id === 'cart--purchase') {
-        addCustomOrder()
+        let test = document.querySelector('#colony-minerals--container')
+        test.innerHTML = addCustomOrder()
     }
 })
 

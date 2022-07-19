@@ -10,7 +10,7 @@ document.addEventListener("change", event => {
         //colony is set in buildColonyMinerals
         const colony = findColonyByGovernor(itemClicked.value)
         setState("colonyId",colony.id)
-        setState("governorId",itemClicked.value)
+        setState("governorId",parseInt(itemClicked.value))
         regenerateHtml()
         buildColonyMinerals(colony.name)
         dispatchHeaderChange()
@@ -21,8 +21,9 @@ document.addEventListener("change", event => {
 export const buildGovernors = () => {
     let html = "<select id='options--governors'><option value='0'>Select a governor</option>"
     const state = getTransientState()
-    governors.forEach(governor => {
-        html += `<option value="${governor.id}" ${state.colonyId === governor.colonyId ? "selected" : ""}>${governor.name}</option>`
+    const activeGovernors = governors.filter(governor => governor.active)
+    activeGovernors.forEach(governor => {
+        html += `<option value="${governor.id}" ${((state.colonyId === governor.colonyId) && (governor.id === state.governorId)) ? "selected" : ""}>${governor.name}</option>`
     })
     html += `</select>`
     return html

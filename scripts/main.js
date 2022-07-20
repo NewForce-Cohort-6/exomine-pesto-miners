@@ -5,8 +5,15 @@ import { purchaseMineral } from './database.js'
 document.addEventListener('click', event => {
     const itemClicked = event.target
     if (itemClicked.id === 'cart--purchase') {
-        let test = document.querySelector('#colony-minerals--container')
-        test.innerHTML = addCustomOrder()
+        addCustomOrder()
+    }
+})
+
+document.addEventListener('change', event => {
+    if (event.target.id === 'options--governors') {
+        const x = document.getElementById('options--governors')
+        const y = x.options[x.selectedIndex].value
+        window.alert(y)
     }
 })
 

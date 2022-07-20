@@ -89,3 +89,7 @@ const subtractMineralsfromFacilities = (mineralId, facilityId) => {
         }
     }
 }
+
+export const getColonyByGovId = (govId) => {
+    
+}

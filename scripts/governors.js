@@ -12,8 +12,10 @@ document.addEventListener("change", event => {
         setState("colonyId",colony.id)
         setState("governorId",parseInt(itemClicked.value))
         regenerateHtml()
-        buildColonyMinerals(colony.name)
-        dispatchHeaderChange()
+        if(event.target!=0) {
+            buildColonyMinerals(colony.name)
+            dispatchHeaderChange()
+        } 
     }
 })
 
@@ -51,8 +53,6 @@ document.addEventListener("header", event => {
 })
 
 export const buildColonyMinerals = (colonyName) => {
-    //add colony mineral list here
-
     header = `${colonyName} Minerals`
     return header
 }

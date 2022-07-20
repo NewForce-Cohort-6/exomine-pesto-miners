@@ -31,6 +31,7 @@ export const buildFacilities = () => {
 
 const mineralsAtFacilities = getArray("mineralsAtFacilities")
 const allMinerals = getArray("minerals")
+const mineralsAtColonies = getArray("mineralsAtColonies")
 
 //returns an array of minerals at the selected facility
 export const getFacilityMinerals = () => {

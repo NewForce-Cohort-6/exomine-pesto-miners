@@ -52,8 +52,12 @@ document.addEventListener("header", event => {
 
 export const buildColonyMinerals = (colonyName) => {
     //add colony mineral list here
-
-    header = `${colonyName} Minerals`
+    if (colonyName) {
+        header = `${colonyName} Minerals`
+    } else {
+        header = `Colony Minerals`
+    }
+    
     return header
 }
 

@@ -263,7 +263,28 @@ const database = {
 			amount: 20
 		}
 	],
-    mineralsAtColonies: [],
+    mineralsAtColonies: [
+		{
+			id: 1,
+			colonyId: 1,
+			mineralId: 1
+		},
+		{
+			id: 2,
+			colonyId: 2,
+			mineralId: 2
+		},
+		{
+			id: 3,
+			colonyId: 3,
+			mineralId: 3
+		},
+		{
+			id: 4,
+			colonyId: 4,
+			mineralId: 4
+		},
+	],
     transientState: {
 		id: 1,
 		mineralId: 1,

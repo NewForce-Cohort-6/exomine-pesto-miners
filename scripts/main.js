@@ -1,6 +1,6 @@
 import { Exomine } from "./exomine.js"
-import { addCustomOrder } from "./purchasing.js"
-import { purchaseMineral } from './database.js'
+import { addCustomOrder, displayColonyMinerals } from "./purchasing.js"
+import { getColonyByGovId } from './purchasing.js'
 
 document.addEventListener('click', event => {
     const itemClicked = event.target
@@ -12,8 +12,10 @@ document.addEventListener('click', event => {
 document.addEventListener('change', event => {
     if (event.target.id === 'options--governors') {
         const x = document.getElementById('options--governors')
+        const mineralContainer = document.querySelector('.colony-minerals')
         const y = x.options[x.selectedIndex].value
-        window.alert(y)
+        let selected = getColonyByGovId(y)
+        mineralContainer.innerHTML = displayColonyMinerals(selected)
     }
 })
 

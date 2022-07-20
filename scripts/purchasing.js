@@ -2,6 +2,7 @@ import { getTransientState } from './database.js'
 import { getArray } from './database.js'
 import { purchaseMineral } from './database.js'
 
+const governors = getArray('governors')
 const colonies = getArray('colonies')
 const facilities = getArray('facilities')
 const minerals = getArray('minerals')
@@ -91,5 +92,10 @@ const subtractMineralsfromFacilities = (mineralId, facilityId) => {
 }
 
 export const getColonyByGovId = (govId) => {
-    
+    let chosenGov = governors.find(gov => gov.id === parseInt(govId))
+    for (const colony of colonies) {
+        if (chosenGov.colonyId === colony.id){
+            return colony.id
+        }
+    }
 }

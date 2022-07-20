@@ -1,4 +1,5 @@
 import { buildGovernors } from "./governors.js"
+import { displayColonyMinerals } from "./purchasing.js"
 import { buildFacilities, getFacilityMinerals } from "./facilities.js"
 import { emptyString } from "./minerals.js"
 
@@ -13,7 +14,6 @@ export const Exomine = () => {
             <article class="row1--colony-minerals">
                 <h2 id="colony-minerals--header">Colony Minerals</h2>
                 <article class="colony-minerals">
-                    {renderColonyMineralHtml()}
                 </article>
             </article>
         </section>

@@ -264,14 +264,11 @@ const database = {
 		}
 	],
     mineralsAtColonies: [
-        {
-            id: 1,
-            mineralId: 1,
-            colonyId: 1,
-            amount: 0
-        },
-    ],
-    transientState: {}
+		
+	],
+    transientState: {
+		
+	}
 }
 
 export const getArray = (arrayName) => database[arrayName].map(object => ({...object})) 
@@ -284,7 +281,20 @@ export const setState = (property, id) => {
 export const purchaseMineral = () => {
 	// Broadcast custom event to entire document so that the
 	// application can re-render and update state
-	regenerateHtml()
+	const newOrder = {}
+	newOrder.id = database.mineralsAtColonies.length + 1
+	newOrder.mineralId = database.transientState.mineralId
+	newOrder.colonyId = database.transientState.colonyId
+	newOrder.facilityId = database.transientState.facilityId
+	let amount = database.transientState.amount
+
+	let filteredArray = database.mineralsAtColonies.filter(x => x.facilityId === database.transientState.facilityId && x.mineralId === database.transientState.mineralId)
+	if (amount > filteredArray.length) {
+		database.mineralsAtColonies.push(newOrder)
+	}
+	
+
+	// document.dispatchEvent(new CustomEvent('stateChanged'))
 }
 
 export const regenerateHtml = () => {

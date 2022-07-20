@@ -1,6 +1,7 @@
 import { buildGovernors } from "./governors.js"
 import { displayColonyMinerals } from "./purchasing.js"
 import { buildFacilities, getFacilityMinerals } from "./facilities.js"
+import { emptyString } from "./minerals.js"
 
 export const Exomine = () => {
     const html = `
@@ -25,6 +26,7 @@ export const Exomine = () => {
             </article>
             <article class="row2--cart">
                 <h2>Space Cart</h2>
+                <div class="cart--item"></div>
                 <button id="cart--purchase">Purchase Mineral</button>
             </article>
         </section>

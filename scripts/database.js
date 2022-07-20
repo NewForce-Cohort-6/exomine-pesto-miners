@@ -264,33 +264,10 @@ const database = {
 		}
 	],
     mineralsAtColonies: [
-		{
-			id: 1,
-			colonyId: 1,
-			mineralId: 1
-		},
-		{
-			id: 2,
-			colonyId: 2,
-			mineralId: 2
-		},
-		{
-			id: 3,
-			colonyId: 3,
-			mineralId: 3
-		},
-		{
-			id: 4,
-			colonyId: 4,
-			mineralId: 4
-		},
+		
 	],
     transientState: {
-		id: 1,
-		mineralId: 1,
-		facilityId: 1,
-		amount: 10,
-		colonyId: 1
+		
 	}
 }
 
@@ -310,8 +287,7 @@ export const purchaseMineral = () => {
 	newOrder.colonyId = database.transientState.colonyId
 	database.mineralsAtColonies.push(newOrder)
 
-	document.dispatchEvent(new CustomEvent('stateChanged'))
-	regenerateHtml()
+	// document.dispatchEvent(new CustomEvent('stateChanged'))
 }
 
 export const regenerateHtml = () => {

@@ -6,8 +6,12 @@ document.addEventListener('click', event => {
     const itemClicked = event.target
     if (itemClicked.id === 'cart--purchase') {
         addCustomOrder()
-    }
-})
+        const x = document.getElementById('options--governors')
+        const mineralContainer = document.querySelector('.colony-minerals')
+        const y = x.options[x.selectedIndex].value
+        let selected = getColonyByGovId(y)
+        mineralContainer.innerHTML = displayColonyMinerals(selected)
+}})
 
 document.addEventListener('change', event => {
     if (event.target.id === 'options--governors') {
@@ -21,7 +25,7 @@ document.addEventListener('change', event => {
 
 document.querySelector("#container").innerHTML = Exomine()
 
-export const renderAllHtml = () => {
+const renderAllHtml = () => {
     document.querySelector("#container").innerHTML = Exomine()
 }
 

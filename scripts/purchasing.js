@@ -20,9 +20,6 @@ export const addCustomOrder = () => {
     //1 ton of chosen material subtracted from chosen facility
     subtractMineralsfromFacilities(chosenMineral.id, chosenFacility.id)
     purchaseMineral()
-    let output = displayColonyMinerals(chosenColony.id)
-    console.log(output)
-    return output
     
     
     //Shopping cart cleared
@@ -83,7 +80,6 @@ const subtractMineralsfromFacilities = (mineralId, facilityId) => {
         if(item.mineralId === mineralId && item.facilityId === facilityId) {
             if(item.amount > 0) {
                 item.amount--
-                console.log(item)
             } else {
                 return null
             }

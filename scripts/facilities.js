@@ -53,7 +53,7 @@ export const getFacilityMinerals = () => {
                 const minArray = mineralsAtColonies.filter(x => x.mineralId === mineral.id && state.facilityId === bridgeMineral.facilityId)
                 amount = bridgeMineral.amount - minArray.length
                 if (amount > 0) {
-                    html += `<input type="radio" id="button-${mineral.id}" name="mineralId" value="${mineral.id}"/><label for="button-${mineral.id}">${amount} tons of ${mineral.name}</label><br>`
+                    html += `<input type="radio" id="button-${mineral.id}" name="mineralId" value="${mineral.id}" ${state.mineralId === mineral.id ? "checked" : ""}/><label for="button-${mineral.id}">${amount} tons of ${mineral.name}</label><br>`
                 }
             }
         }

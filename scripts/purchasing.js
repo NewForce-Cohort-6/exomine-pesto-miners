@@ -6,7 +6,7 @@ const governors = getArray('governors')
 const colonies = getArray('colonies')
 const facilities = getArray('facilities')
 const minerals = getArray('minerals')
-const mineralFacilites = getArray('mineralsAtFacilities')
+const mineralFacilities = getArray('mineralsAtFacilities')
 const mineralsAtColonies = getArray('mineralsAtColonies')
 
 //click event for button
@@ -56,7 +56,6 @@ export const displayColonyMinerals = (colonyId) => {
     const colonyArray = colonyMinerals.filter(item => item.colonyId === colonyId)
 
     const colonyMineralObjs = colonyArray.map(x => minerals.find(y => x.mineralId === y.id))
-    console.log(colonyMineralObjs)
 
     const colonySet = [... new Set(colonyMineralObjs) ]
    const taco =  colonySet.map(x => {
@@ -66,13 +65,12 @@ export const displayColonyMinerals = (colonyId) => {
     for (const colony of colonySet) {
         html += `<p>${colony.amount} tons of ${colony.name}</p>`
     }
-    console.log(taco)
     
     return html
 }
 
 const subtractMineralsfromFacilities = (mineralId, facilityId) => {
-    for (const item of mineralFacilites) {
+    for (const item of mineralFacilities) {
         if(item.mineralId === mineralId && item.facilityId === facilityId) {
             if(item.amount > 0) {
                 setState('amount', item.amount - 1)

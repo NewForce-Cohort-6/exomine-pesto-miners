@@ -1,4 +1,5 @@
 import { getArray, setState, getTransientState, regenerateHtml } from "./database.js"
+import { buildFacilities } from "./facilities.js"
 
 const governors = getArray("governors")
 const colonies = getArray("colonies")
@@ -12,8 +13,12 @@ document.addEventListener("change", event => {
         setState("colonyId",colony.id)
         setState("governorId",parseInt(itemClicked.value))
         regenerateHtml()
-        buildColonyMinerals(colony.name)
-        dispatchHeaderChange()
+        if(event.target!=0) {
+            setState("facilityId",0)
+            regenerateHtml()
+            buildColonyMinerals(colony.name)
+            dispatchHeaderChange()
+        } 
     }
 })
 

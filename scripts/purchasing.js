@@ -1,4 +1,4 @@
-import { getTransientState } from './database.js'
+import { getTransientState, setState } from './database.js'
 import { getArray } from './database.js'
 import { purchaseMineral } from './database.js'
 
@@ -79,7 +79,8 @@ const subtractMineralsfromFacilities = (mineralId, facilityId) => {
     for (const item of mineralFacilites) {
         if(item.mineralId === mineralId && item.facilityId === facilityId) {
             if(item.amount > 0) {
-                item.amount--
+                setState('amount', item.amount - 1)
+                const transState = getTransientState()
             } else {
                 return null
             }

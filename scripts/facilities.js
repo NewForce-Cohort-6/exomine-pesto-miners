@@ -50,9 +50,11 @@ export const getFacilityMinerals = () => {
     for (const bridgeMineral of mineralsAtFacility) {
         for (const mineral of allMinerals) {
             if(mineral.id === bridgeMineral.mineralId) {
-                const minArray = mineralsAtColonies.filter(x => x.mineralId === mineral.id)
+                const minArray = mineralsAtColonies.filter(x => x.mineralId === mineral.id && state.facilityId === bridgeMineral.facilityId)
                 amount = bridgeMineral.amount - minArray.length
-                html += `<input type="radio" id="button-${mineral.id}" name="mineralId" value="${mineral.id}"/><label for="button-${mineral.id}">${amount} tons of ${mineral.name}</label><br>`
+                if (amount > 0) {
+                    html += `<input type="radio" id="button-${mineral.id}" name="mineralId" value="${mineral.id}"/><label for="button-${mineral.id}">${amount} tons of ${mineral.name}</label><br>`
+                }
             }
         }
     }

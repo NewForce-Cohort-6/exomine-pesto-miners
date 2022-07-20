@@ -20,6 +20,7 @@ const buildCart = () => {
                     mineralsAtFacilities.forEach(object => { //iterate through bridge table to match facilityId & mineralId to set mineral "amount" to transientState
                         if (facility.id === object.facilityId && mineral.id === object.mineralId) {
                             setState("amount", object.amount)
+                            setState('facilityId', object.facilityId)
                         }
                     })
                 }

@@ -1,4 +1,5 @@
 import { getArray, setState, getTransientState, regenerateHtml } from "./database.js"
+import { buildFacilities } from "./facilities.js"
 
 const governors = getArray("governors")
 const colonies = getArray("colonies")

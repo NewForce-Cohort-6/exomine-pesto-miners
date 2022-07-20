@@ -7,7 +7,6 @@ import {regenerateHtml} from './database.js'
 document.addEventListener('click', event => {
     const itemClicked = event.target
     if (itemClicked.id === 'cart--purchase') {
-        //
         addCustomOrder()
         const mineralContainer = document.querySelector('.colony-minerals')
         const facilityMinerals = document.querySelector(".facility-minerals")

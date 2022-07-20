@@ -291,6 +291,7 @@ export const purchaseMineral = () => {
 	let filteredArray = database.mineralsAtColonies.filter(x => x.facilityId === database.transientState.facilityId && x.mineralId === database.transientState.mineralId)
 	if (amount > filteredArray.length) {
 		database.mineralsAtColonies.push(newOrder)
+		// database.transientState = {}
 	}
 	
 

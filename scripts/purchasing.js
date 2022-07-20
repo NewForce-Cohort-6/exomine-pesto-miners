@@ -24,11 +24,14 @@ export const addCustomOrder = () => {
 //available amount for selected colony re-rendered
 
 const filterColonyById = (colonyId) => {
-    for (const colony of colonies) {
-        if (colonyId === colony.id) {
-            return colony
+    if (colonyId) {
+        for (const colony of colonies) {
+            if (colonyId === colony.id) {
+                return colony
+            }
         }
     }
+    
 }
 
 const filterFacilityById = (facilityId) => {
@@ -84,9 +87,11 @@ const subtractMineralsfromFacilities = (mineralId, facilityId) => {
 
 export const getColonyByGovId = (govId) => {
     let chosenGov = governors.find(gov => gov.id === parseInt(govId))
-    for (const colony of colonies) {
-        if (chosenGov.colonyId === colony.id){
-            return colony.id
+    if (chosenGov) {
+        for (const colony of colonies) {
+            if (chosenGov.colonyId === colony.id){
+                return colony.id
+            }
         }
     }
 }

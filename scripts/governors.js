@@ -14,6 +14,8 @@ document.addEventListener("change", event => {
         setState("governorId",parseInt(itemClicked.value))
         regenerateHtml()
         if(event.target!=0) {
+            setState("facilityId",0)
+            regenerateHtml()
             buildColonyMinerals(colony.name)
             dispatchHeaderChange()
         } 

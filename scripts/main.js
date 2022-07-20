@@ -15,7 +15,6 @@ document.addEventListener('click', event => {
         const y = x.options[x.selectedIndex].value
         let selected = getColonyByGovId(y)
         mineralContainer.innerHTML = displayColonyMinerals(selected)
-
         facilityMinerals.innerHTML = getFacilityMinerals()
 
 }})

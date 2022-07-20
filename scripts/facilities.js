@@ -11,10 +11,11 @@ document.addEventListener("change", event => {
         dispatchHeaderChange()
     }
 })
-
 const facilities = getArray("facilities")
 
+
 export const buildFacilities = () => {
+
     const state = getTransientState()
     //if a governor/colony has not been selected, this dropdown is disabled
     let html = `<select id='options--facilities' ${!state.colonyId ? "disabled" : ""}><option value='0'>Select a facility</option>`
@@ -35,6 +36,7 @@ const mineralsAtColonies = getArray("mineralsAtColonies")
 
 //returns an array of minerals at the selected facility
 export const getFacilityMinerals = () => {
+    const mineralsAtColonies = getArray('mineralsAtColonies')
     const state = getTransientState()
     //find what minerals are available at the selected facility
     let mineralsAtFacility = []
@@ -49,8 +51,11 @@ export const getFacilityMinerals = () => {
     for (const bridgeMineral of mineralsAtFacility) {
         for (const mineral of allMinerals) {
             if(mineral.id === bridgeMineral.mineralId) {
-                amount = bridgeMineral.amount
-                html += `<input type="radio" id="button-${mineral.id}" name="mineralId" value="${mineral.id}"/><label for="button-${mineral.id}">${amount} tons of ${mineral.name}</label><br>`
+                const minArray = mineralsAtColonies.filter(x => x.mineralId === mineral.id && state.facilityId === bridgeMineral.facilityId)
+                amount = bridgeMineral.amount - minArray.length
+                if (amount > 0) {
+                    html += `<input type="radio" id="button-${mineral.id}" name="mineralId" value="${mineral.id}"/><label for="button-${mineral.id}">${amount} tons of ${mineral.name}</label><br>`
+                }
             }
         }
     }

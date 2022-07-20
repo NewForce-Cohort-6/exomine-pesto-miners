@@ -7,6 +7,7 @@ const colonies = getArray('colonies')
 const facilities = getArray('facilities')
 const minerals = getArray('minerals')
 const mineralFacilites = getArray('mineralsAtFacilities')
+const mineralsAtColonies = getArray('mineralsAtColonies')
 
 //click event for button
 
@@ -18,12 +19,7 @@ export const addCustomOrder = () => {
     const chosenMineral = filterMineralById(newOrder.mineralId)
 
     //1 ton of chosen material subtracted from chosen facility
-    subtractMineralsfromFacilities(chosenMineral.id, chosenFacility.id)
     purchaseMineral()
-    
-    
-    //Shopping cart cleared
-    
 }
 //available amount for selected colony re-rendered
 

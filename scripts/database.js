@@ -285,7 +285,14 @@ export const purchaseMineral = () => {
 	newOrder.id = database.mineralsAtColonies.length + 1
 	newOrder.mineralId = database.transientState.mineralId
 	newOrder.colonyId = database.transientState.colonyId
-	database.mineralsAtColonies.push(newOrder)
+	newOrder.facilityId = database.transientState.facilityId
+	let amount = database.transientState.amount
+
+	let filteredArray = database.mineralsAtColonies.filter(x => x.facilityId === database.transientState.facilityId && x.mineralId === database.transientState.mineralId)
+	if (amount > filteredArray.length) {
+		database.mineralsAtColonies.push(newOrder)
+	}
+	
 
 	// document.dispatchEvent(new CustomEvent('stateChanged'))
 }

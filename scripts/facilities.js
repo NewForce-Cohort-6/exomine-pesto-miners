@@ -5,7 +5,7 @@ document.addEventListener("change", event => {
     const itemClicked = event.target
     if(itemClicked.id.startsWith("options--facilities")) {
         setState("facilityId",parseInt(itemClicked.value))
-        regenerateHtml()
+        // regenerateHtml()
         let facilityMinerals = document.querySelector(".facility-minerals")
         facilityMinerals.innerHTML = getFacilityMinerals()
         buildColonyMineralsHeader(colony.name)

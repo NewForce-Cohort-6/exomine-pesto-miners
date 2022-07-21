@@ -277,6 +277,9 @@ export const getTransientState = () => ({...database.transientState})
 export const setState = (property, id) => {
 	database.transientState[property] = id
 }
+export const deleteState = (property) => {
+	delete database.transientState[property]
+}
 
 export const purchaseMineral = () => {
 	// Broadcast custom event to entire document so that the

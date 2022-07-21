@@ -1,10 +1,11 @@
-import { getArray, getTransientState, setState, regenerateHtml } from "./database.js"
+import { getArray, getTransientState, setState, regenerateHtml, deleteState } from "./database.js"
 import { buildColonyMinerals, dispatchHeaderChange } from "./governors.js"
 
 document.addEventListener("change", event => {
     const itemClicked = event.target
     if(itemClicked.id.startsWith("options--facilities")) {
         setState("facilityId",parseInt(itemClicked.value))
+        deleteState("mineralId")
         regenerateHtml()
         let facilityMinerals = document.querySelector(".facility-minerals")
         facilityMinerals.innerHTML = getFacilityMinerals()

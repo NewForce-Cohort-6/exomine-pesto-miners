@@ -8,6 +8,7 @@ const facilities = getArray('facilities')
 const minerals = getArray('minerals')
 const mineralFacilities = getArray('mineralsAtFacilities')
 const mineralsAtColonies = getArray('mineralsAtColonies')
+const state = getTransientState()
 
 //click event for button
 
@@ -61,7 +62,7 @@ export const displayColonyMinerals = (colonyId) => {
     const colonyMineralObjs = colonyArray.map(x => minerals.find(y => x.mineralId === y.id))
 
     const colonySet = [... new Set(colonyMineralObjs) ]
-   const taco =  colonySet.map(x => {
+    const taco =  colonySet.map(x => {
     x.amount = colonyMineralObjs.filter(y=> y.id === x.id).length
     return x
 })
@@ -77,7 +78,6 @@ const subtractMineralsfromFacilities = (mineralId, facilityId) => {
         if(item.mineralId === mineralId && item.facilityId === facilityId) {
             if(item.amount > 0) {
                 setState('amount', item.amount - 1)
-                const transState = getTransientState()
             } else {
                 return null
             }
@@ -94,4 +94,9 @@ export const getColonyByGovId = (govId) => {
             }
         }
     }
+}
+
+export const buildButton = () => {
+    const button = document.querySelector('.cart--purchasing')
+    button.innerHTML = `<button id="cart--purchase">Purchase Mineral</button>`
 }

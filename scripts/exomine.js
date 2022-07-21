@@ -27,8 +27,10 @@ export const Exomine = () => {
             <article class="row2--cart">
                 <h2>Space Cart</h2>
                 <div class="cart--item"></div>
-                <button id="cart--purchase">Purchase Mineral</button>
-            </article>
+                <div class="cart--purchasing">
+                    
+                </div>
+                </article>
         </section>
     `
     return html

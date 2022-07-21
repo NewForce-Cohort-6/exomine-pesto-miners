@@ -1,5 +1,5 @@
 import { getArray, getTransientState, setState, regenerateHtml } from "./database.js"
-import { buildColonyMinerals, dispatchHeaderChange } from "./governors.js"
+import { dispatchHeaderChange, buildColonyMineralsContent, buildColonyMineralsHeader } from "./governors.js"
 
 document.addEventListener("change", event => {
     const itemClicked = event.target
@@ -8,7 +8,10 @@ document.addEventListener("change", event => {
         regenerateHtml()
         let facilityMinerals = document.querySelector(".facility-minerals")
         facilityMinerals.innerHTML = getFacilityMinerals()
+        buildColonyMineralsHeader(colony.name)
+        buildColonyMineralsContent(colony.name)
         dispatchHeaderChange()
+        setState("mineralId",0)
     }
 })
 const facilities = getArray("facilities")

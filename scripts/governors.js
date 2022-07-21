@@ -1,5 +1,6 @@
 import { getArray, setState, getTransientState, regenerateHtml } from "./database.js"
 import { buildFacilities } from "./facilities.js"
+import { displayColonyMinerals } from "./purchasing.js"
 
 const governors = getArray("governors")
 const colonies = getArray("colonies")
@@ -16,7 +17,8 @@ document.addEventListener("change", event => {
         if(event.target!=0) {
             setState("facilityId",0)
             regenerateHtml()
-            buildColonyMinerals(colony.name)
+            buildColonyMineralsHeader(colony.name)
+            buildColonyMineralsContent(colony.name)
             dispatchHeaderChange()
         } 
     }
@@ -55,17 +57,32 @@ document.addEventListener("header", event => {
     colonyMineralsHeader.innerHTML = header
 })
 
-export const buildColonyMinerals = (colonyName) => {
+export const buildColonyMineralsHeader = (colonyName) => {
     //add colony mineral list here
     if (colonyName) {
         header = `${colonyName} Minerals`
     } else {
         header = `Colony Minerals`
     }
-    
     return header
+}
+
+let content = ""
+document.addEventListener("content", event => {
+    let colonyMineralsHeader = document.querySelector(".colony-minerals")
+    colonyMineralsHeader.innerHTML = content
+})
+
+export const buildColonyMineralsContent = (colonyName) => {
+    //add colony mineral list here
+    const state = getTransientState()
+    if (colonyName) {
+        content = displayColonyMinerals(state.colonyId)
+    }
+    return content
 }
 
 export const dispatchHeaderChange = () => {
     document.dispatchEvent(new CustomEvent("header"))
+    document.dispatchEvent(new CustomEvent('content'))
 }

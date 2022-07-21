@@ -1,4 +1,5 @@
 import { setState, getTransientState, getArray } from "./database.js";
+import { buildButton } from "./purchasing.js";
 
 //since no other function is exported, I've exported this "emptyString" to exomine.js in order for this module to be read. there's probably a better way.
 export const emptyString = ""
@@ -20,7 +21,6 @@ const buildCart = () => {
                     mineralsAtFacilities.forEach(object => { //iterate through bridge table to match facilityId & mineralId to set mineral "amount" to transientState
                         if (facility.id === object.facilityId && mineral.id === object.mineralId) {
                             setState("amount", object.amount)
-                            setState('facilityId', object.facilityId)
                         }
                     })
                 }
@@ -33,10 +33,10 @@ const buildCart = () => {
 document.addEventListener("change", (event) => { 
         if (event.target.name === "mineralId") {
             setState(event.target.name, parseInt(event.target.value)) //set mineralId for selected mineral in transientState database object
-
             const cartItemDiv = document.querySelector(".cart--item")
             const cartHTML = buildCart()
             cartItemDiv.innerHTML = cartHTML
+            buildButton()
         }
     }
 )
